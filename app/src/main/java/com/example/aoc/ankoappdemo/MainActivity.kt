@@ -12,19 +12,25 @@ class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-    var ver = verticalLayout {
+    verticalLayout {
+
+      var ver = verticalLayout {
+
+      }
       var name = editText()
       button("点我") {
         onClick {
           //          toast("${name.text}")
-
+          v ->
           doAsync {
-            //            var text1 = URL("https://www.zhengw.top/getbooks").readText()
+            var text1 = URL("https://www.zhengw.top/getbooks").readText()
 //            toast("${text1}")
-            Request().run()
-//            Log.d(javaClass.simpleName, text1)
+//            Request().run()
+            Log.d(javaClass.simpleName, text1)
+            name.hint = text1
+
             uiThread {
-//              longToast("123123")
+              // longToast("123123")
             }
           }
         }
